@@ -9,6 +9,16 @@ public class TestSystem {
 
     public static void main(String[] args) {
 
+        addCustomer(1, "John", "Smith");
+        addCustomer(2, "Tom", "Kowalski");
+        addCustomer(3, "Frank", "Musk");
+        addCustomer(4, "Joe", "Gates");
+
+        getCustomer(3);
+        getCustomers();
+        changeFName(3, "Mark");
+        deleteCustomer(4);
+
 
         ENTITY_MANAGER_FACTORY.close();
 
@@ -55,7 +65,7 @@ public class TestSystem {
         }
     }
 
-    public static void getCustomers(int id) {
+    public static void getCustomers() {
         EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
         String strQuery = "SELECT c FROM Customer c WHERE c.id IS NOT NULL;";
 
